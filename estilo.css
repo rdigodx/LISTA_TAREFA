@@ -1,33 +1,28 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body {
-    color: rgb(255, 255, 255);
-}
-
 h1 {
-    color: #000000;
-    font-size: 35px;
-    padding: 20px;
-    text-align: center;
+  color: #000000;
+  font-size: 35px;
+  padding: 20px;
+  text-align: center;
 }
 
-input{
-    color: #000000;
-    font-size: 15px;
-    border-radius: 10px;
-    padding: 4px;
+input {
+  color: #000000;
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 4px;
 }
-button{
-    color: #000000;
-    font-size: 15px;
-    padding: 6px;
-    background-color: black ;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
+button {
+  color: #000000;
+  font-size: 15px;
+  padding: 6px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
