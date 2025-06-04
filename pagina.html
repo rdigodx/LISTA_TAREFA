@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
     <title>LISTA_tarefa</title>
-    <div style="text-align: center;">
+    <div  id="titulo" style="text-align: center;">
         <h1>LISTA DE TAREFAS</h1>
     </div>
 </head>
 <body>
     <div style="text-align: center;">
-        <input type="text" placeholder="INSIRA UMA TAREFA...">
-        <button onclick="adicionarTarefa()">Adicionar</button>
+        <input type="text" placeholder="INSIRA UMA TAREFA..." id="entradaTarefa">
+        <button onclick="adicionarTarefa()" id="botaoAdicionar">Adicionar</button>
+        <div style="padding-top: 5px;">
+            <ul id="listaTarefas"></ul>
+        </div>
     </div>
     <script src="script.js"></script>
 <body>
