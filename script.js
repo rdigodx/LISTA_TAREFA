@@ -7,8 +7,8 @@ carregarTarefas();
 
 function adicionarTarefa() {
   let texto = entradaTarefa.value.trim();
-  if (texto != "") {
-    tarefas.push(entradaTarefa.value);
+  if (texto !== "") {
+    tarefas.push(texto);
     entradaTarefa.value = "";
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
     carregarTarefas();
@@ -17,19 +17,31 @@ function adicionarTarefa() {
   }
 }
 
-entradaTarefa,
-  addEventListener("keypress", function (tecla) {
-    if (tecla.key === "Enter") {
-      adicionarTarefa();
-    }
-  });
+entradaTarefa.addEventListener("keypress", function (tecla) {
+  if (tecla.key === "Enter") {
+    adicionarTarefa();
+  }
+});
 
 function carregarTarefas() {
   listaTarefas.innerHTML = "";
-  tarefas.forEach((tarefas, posicao) => {
+  tarefas.forEach((tarefa, posicao) => {
     const item = document.createElement("li");
     item.className = "item-lista";
-    item.className = `<span class="item">${tarefas}</span>`;
+    item.innerHTML = `
+      <span class="item">${tarefa}</span>
+      <button onclick="removerTarefas(${posicao})" class="botaoRemover">X</button>
+    `;
     listaTarefas.appendChild(item);
   });
+}
+
+function removerTarefas(posicao) {
+  tarefas.splice(posicao, 1);
+  salvarTarefas();
+  carregarTarefas();
+}
+
+function salvarTarefas() {
+  localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
