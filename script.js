@@ -3,6 +3,8 @@ const listaTarefas = document.getElementById("listaTarefas");
 
 let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
+let posicaoEditar = undefined;
+
 carregarTarefas();
 
 function adicionarTarefa() {
@@ -30,7 +32,8 @@ function carregarTarefas() {
     item.className = "item-lista";
     item.innerHTML = `
       <span class="item">${tarefa}</span>
-      <button onclick="removerTarefas(${posicao})" class="botaoRemover">X</button>
+       <button id="botaoRemover" onclick="editarTarefa(${posicao})">Editar</button>
+      <button id="botaoRemover" onclick="removerTarefas(${posicao})" class="botaoRemover">X</button>
     `;
     listaTarefas.appendChild(item);
   });
@@ -44,4 +47,9 @@ function removerTarefas(posicao) {
 
 function salvarTarefas() {
   localStorage.setItem("tarefas", JSON.stringify(tarefas));
+}
+
+function editarTarefa(posicao) {
+  posicaoEditar = posicao;
+  entradaTarefa.value = tarefas[posicao];
 }
